@@ -1,7 +1,17 @@
 #!/bin/sh
 
-cat <<EOT >> /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
-"Section "InputClass"\n
+# /etc/X11/xorg.conf.d/50-mouse-acceleration.conf
+
+Section "InputClass"
+	Identifier "My Mouse"
+	Driver "libinput"
+	MatchIsPointer "yes"
+	Option "AccelProfile" "flat"
+EndSection
+
+
+
+'Section "InputClass"\n
 	Identifier "My Mouse"\n
 	MatchIsPointer "yes"\n
 	Option "AccelerationProfile" "-1"\n
@@ -16,7 +26,7 @@ Section "InputClass"
 	Option "AccelerationScheme" "none"
 	Option "AccelSpeed" "-1"
 EndSection"
-EOT
+EOT'
 
 ##keyboard
 
